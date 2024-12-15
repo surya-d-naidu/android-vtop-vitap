@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "887863822131",
+    "project_id": "android-vtop-vitap",
+    "storage_bucket": "android-vtop-vitap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887863822131:android:3675c69c4ebe191638a046",
+        "android_client_info": {
+          "package_name": "tk.therealsuji.vtopchennai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOdRn8KY1Va6mvftjlPTXVReMKDlLgaXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
