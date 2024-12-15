@@ -87,15 +87,21 @@ public class PerformanceFragment extends Fragment {
 
         float pixelDensity = this.getResources().getDisplayMetrics().density;
 
+<<<<<<< HEAD
         //performanceCards.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
+=======
+>>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
         getParentFragmentManager().setFragmentResultListener("customInsets", this, (requestKey, result) -> {
             int systemWindowInsetLeft = result.getInt("systemWindowInsetLeft");
             int systemWindowInsetTop = result.getInt("systemWindowInsetTop");
             int systemWindowInsetRight = result.getInt("systemWindowInsetRight");
             int bottomNavigationHeight = result.getInt("bottomNavigationHeight");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
             this.appBarLayout.setPadding(
                     systemWindowInsetLeft,
                     systemWindowInsetTop,
@@ -139,7 +145,11 @@ public class PerformanceFragment extends Fragment {
 
                     @Override
                     public void onSuccess(@NonNull List<Course.AllData> courses) {
+<<<<<<< HEAD
                         if (courses.isEmpty()) {
+=======
+                        if (courses.size() == 0) {
+>>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
                             displayEmptyState(EmptyStateAdapter.TYPE_NO_PERFORMANCE, null);
                             return;
                         }
@@ -318,6 +328,7 @@ public class PerformanceFragment extends Fragment {
         return performanceFragment;
     }
 
+<<<<<<< HEAD
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -380,6 +391,8 @@ public class PerformanceFragment extends Fragment {
                 });
     }
 
+=======
+>>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
     @Override
     public void onDestroyView() {
         super.onDestroyView();

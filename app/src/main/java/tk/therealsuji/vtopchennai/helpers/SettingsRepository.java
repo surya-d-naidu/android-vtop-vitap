@@ -72,7 +72,10 @@ public class SettingsRepository {
     public static final String APP_PRIVACY_URL = "https://vtopchennai.therealsuji.tk" + "/privacy-policy";
     public static final String FACULTY_SEARCH_URL = "https://vitstudent.sanjaydev.site/facultySearch" ;
     public static final String DEVELOPER_BASE_URL = "https://sanjay7178.github.io";
+<<<<<<< HEAD
     public static final String FEEDBACK_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfpIr--vGmShCXMBPv25wecdMg6wcsXxtrfhqvlSyef3Yc1yA/viewform?usp=dialog";
+=======
+>>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
 
     public static final String GITHUB_BASE_URL = "https://github.com/sanjay7178/android-vtop-vitap";
     public static final String GITHUB_FEATURE_URL = GITHUB_BASE_URL + "/issues";
