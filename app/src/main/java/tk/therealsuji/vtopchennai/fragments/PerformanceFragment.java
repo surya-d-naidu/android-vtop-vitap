@@ -87,21 +87,12 @@ public class PerformanceFragment extends Fragment {
 
         float pixelDensity = this.getResources().getDisplayMetrics().density;
 
-<<<<<<< HEAD
-        //performanceCards.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-
-=======
->>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
         getParentFragmentManager().setFragmentResultListener("customInsets", this, (requestKey, result) -> {
             int systemWindowInsetLeft = result.getInt("systemWindowInsetLeft");
             int systemWindowInsetTop = result.getInt("systemWindowInsetTop");
             int systemWindowInsetRight = result.getInt("systemWindowInsetRight");
             int bottomNavigationHeight = result.getInt("bottomNavigationHeight");
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
             this.appBarLayout.setPadding(
                     systemWindowInsetLeft,
                     systemWindowInsetTop,
@@ -145,11 +136,7 @@ public class PerformanceFragment extends Fragment {
 
                     @Override
                     public void onSuccess(@NonNull List<Course.AllData> courses) {
-<<<<<<< HEAD
                         if (courses.isEmpty()) {
-=======
-                        if (courses.size() == 0) {
->>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
                             displayEmptyState(EmptyStateAdapter.TYPE_NO_PERFORMANCE, null);
                             return;
                         }
@@ -328,71 +315,6 @@ public class PerformanceFragment extends Fragment {
         return performanceFragment;
     }
 
-<<<<<<< HEAD
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        TabLayout courseTabs = view.findViewById(R.id.tab_layout_courses);
-
-        // Move data fetching and adapter setup to onViewCreated
-        AppDatabase appDatabase = AppDatabase.getInstance(requireActivity().getApplicationContext());
-        MarksDao marksDao = appDatabase.marksDao();
-
-        marksDao.getCourses()
-                .subscribeOn(Schedulers.single())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<List<Course.AllData>>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-                    }
-
-                    @Override
-                    public void onSuccess(@NonNull List<Course.AllData> courses) {
-                        if (courses.isEmpty()) {
-                            displayEmptyState(EmptyStateAdapter.TYPE_NO_PERFORMANCE, null);
-                            return;
-                        }
-
-                        performanceCards.setVisibility(View.VISIBLE);
-                        courseTabs.setVisibility(View.VISIBLE);
-
-                        List<Observable<List<Mark.AllData>>> markObservables = new ArrayList<>();
-                        for (Course.AllData course : courses) {
-                            Observable<List<Mark.AllData>> observable = Observable.fromSingle(marksDao.getMarks(course.courseCode))
-                                    .subscribeOn(Schedulers.single())
-                                    .observeOn(AndroidSchedulers.mainThread())
-                                    .replay()
-                                    .autoConnect();
-                            markObservables.add(observable);
-                        }
-
-                        // Set the adapter here, after data has been loaded
-                        marks.setAdapter(new MarksAdapter(markObservables));
-
-                        new TabLayoutMediator(courseTabs, marks, (tab, position) -> {
-                            Course.AllData course = courses.get(position);
-                            tab.setText(course.courseCode);
-                            TooltipCompat.setTooltipText(tab.view, course.courseTitle);
-                            tab.view.setContentDescription(course.courseTitle);
-
-                            // Set up badge for unread marks
-                            if (course.unreadMarkCount != 0) {
-                                BadgeDrawable badgeDrawable = tab.getOrCreateBadge();
-                                badgeDrawable.setBadgeGravity(BadgeDrawable.TOP_END);
-                                badgeDrawable.setNumber(course.unreadMarkCount);
-                            }
-                        }).attach();
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        displayEmptyState(EmptyStateAdapter.TYPE_ERROR, "Error: " + e.getLocalizedMessage());
-                    }
-                });
-    }
-
-=======
->>>>>>> 0bee43467281c1d0604ba7ee5b7b9773cd1da73e
     @Override
     public void onDestroyView() {
         super.onDestroyView();
