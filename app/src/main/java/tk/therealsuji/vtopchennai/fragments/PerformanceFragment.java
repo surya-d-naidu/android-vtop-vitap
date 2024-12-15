@@ -136,7 +136,7 @@ public class PerformanceFragment extends Fragment {
 
                     @Override
                     public void onSuccess(@NonNull List<Course.AllData> courses) {
-                        if (courses.isEmpty()) {
+                        if (courses.size() == 0) {
                             displayEmptyState(EmptyStateAdapter.TYPE_NO_PERFORMANCE, null);
                             return;
                         }
